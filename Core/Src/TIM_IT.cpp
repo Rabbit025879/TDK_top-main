@@ -18,6 +18,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 	if(htim->Instance == TIM5){
 		//shooter
+		hz_origin = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4);
+		ev_origin = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
+
 		if(reset == 1)	Reset();
 		else{
 			shooter_base();

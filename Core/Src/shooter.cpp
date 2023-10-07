@@ -22,6 +22,9 @@ int return_value = 0;
 int16_t enc_st = 0;
 double angle_st = 0.0;
 
+int check = 0;
+double angle = 0;
+
 void shooter(){
 
 	//encoder -> angle
@@ -33,7 +36,7 @@ void shooter(){
 
 	//transfer turns into lengths
 	actual_length = (angle_st/360)*(2*M_PI*radius);
-
+//	__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_1,600+10*angle);
 	//If got a new target
 	if(target_length > 0){
 
@@ -76,7 +79,7 @@ void shooter(){
 		else{
 			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_RESET); //Stop
 			//Comfirm that the base is in the position or not
-			if(ev_ok == 1 && hz_ok == 1 && seat_ok == 1){
+			if(ev_ok == 1 && hz_ok == 1 && seat_ok == 1 && check == 1){
 				if(check_fire == 0){
 					delay++;
 					if(delay > 600){
@@ -86,15 +89,20 @@ void shooter(){
 				}
 			//Reset
 				if(check_fire == 1){
-					check_hook = 0;
-					target_length = 0.0;
-					actual_length = 0.0;
-					angle_st = 0.0;
 
-					seat_ok = 0;
+					if(delay > 600 && delay <= 1000)	delay++;
+					else if(delay > 1000){
+						check_hook = 0;
+						target_length = 0.0;
+						actual_length = 0.0;
+						angle_st = 0.0;
+						seat_ok = 0;
+						reset = 1;
 
-					if(return_value < 8 )	return_value ++;
-					else	return_value = 0;
+						if(return_value < 8 )	return_value ++;
+						else	return_value = 0;
+
+					}
 				}
 			}
 		}
