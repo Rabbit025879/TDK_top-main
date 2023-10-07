@@ -49,34 +49,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := TDK_top
+BUILD_ARTIFACT_NAME := TDK_top-main
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-TDK_top.elf \
+TDK_top-main.elf \
 
 MAP_FILES += \
-TDK_top.map \
+TDK_top-main.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-TDK_top.list \
+TDK_top-main.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: TDK_top.elf secondary-outputs
+main-build: TDK_top-main.elf secondary-outputs
 
 # Tool invocations
-TDK_top.elf TDK_top.map: $(OBJS) $(USER_OBJS) C:\Users\rabbi\STM32CubeIDE\workspace_1.10.1\TDK_top\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "TDK_top.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\rabbi\STM32CubeIDE\workspace_1.10.1\TDK_top\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TDK_top.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+TDK_top-main.elf TDK_top-main.map: $(OBJS) $(USER_OBJS) C:\Users\rabbi\STM32CubeIDE\workspace_1.10.1\TDK_top-main\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "TDK_top-main.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\rabbi\STM32CubeIDE\workspace_1.10.1\TDK_top-main\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TDK_top-main.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -85,14 +85,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-TDK_top.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TDK_top.list"
+TDK_top-main.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TDK_top-main.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) TDK_top.elf TDK_top.list TDK_top.map default.size.stdout
+	-$(RM) TDK_top-main.elf TDK_top-main.list TDK_top-main.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

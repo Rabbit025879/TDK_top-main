@@ -1,6 +1,8 @@
 "./Core/Src/TIM_IT.o"
+"./Core/Src/baseball_intake.o"
 "./Core/Src/main.o"
 "./Core/Src/mainpp.o"
+"./Core/Src/ros_port.o"
 "./Core/Src/shooter.o"
 "./Core/Src/shooter_base.o"
 "./Core/Src/stm32f4xx_hal_msp.o"
@@ -24,3 +26,4 @@
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+"./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"

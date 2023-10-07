@@ -26,7 +26,9 @@ Core/Src/TIM_IT.o: ../Core/Src/TIM_IT.cpp ../Core/Inc/TIM_IT.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Core/Inc/shooter.h ../Core/Inc/TIM_IT.h ../Core/Inc/shooter_base.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../Core/Inc/shooter.h ../Core/Inc/TIM_IT.h ../Core/Inc/shooter_base.h \
+ ../Core/Inc/baseball_intake.h ../Core/Inc/shooter_base.h
 ../Core/Inc/TIM_IT.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -55,6 +57,9 @@ Core/Src/TIM_IT.o: ../Core/Src/TIM_IT.cpp ../Core/Inc/TIM_IT.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/shooter.h:
 ../Core/Inc/TIM_IT.h:
+../Core/Inc/shooter_base.h:
+../Core/Inc/baseball_intake.h:
 ../Core/Inc/shooter_base.h:

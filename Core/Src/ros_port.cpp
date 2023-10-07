@@ -23,23 +23,23 @@
 
 void angle_callback(const geometry_msgs::Point &msg)
 {
-	target_hz = msg.linear.x;
-	target_ev = msg.linear.y;
-	target_length = msg.angular.z;
+//	target_hz = msg.linear.x;
+//	target_ev = msg.linear.y;
+//	target_length = msg.angular.z;
 }
 void laji_callback(const std_msgs::Int8 &msg){
 	laji_cmd = msg.data;
 }
 
 void ori_callback(const std_msgs::Int8 &msg){
-	flag = msg.data;
+//	flag = msg.data;
 }
 
 ros::NodeHandle nh;
 ros::Subscriber<geometry_msgs::Point> sub_angle("/cmd_angle", angle_callback);
 ros::Subscriber<std_msgs::Int8> sub_ori("/cmd_ori", ori_callback);
 ros::Subscriber<std_msgs::Int8> sub_laji("cmd_laji", laji_callback);
-ros::Publisher pub_laji("laji_ok", &speed);
+//ros::Publisher pub_laji("laji_ok", &speed);
 
 void ros_setup(void)
 {
@@ -47,7 +47,7 @@ void ros_setup(void)
     nh.subscribe(sub_angle);
     nh.subscribe(sub_ori);
 	nh.subscribe(sub_laji);
-	nh.advertise(pub_laji);
+//	nh.advertise(pub_laji);
 
 }
 void ros_loop(void)
